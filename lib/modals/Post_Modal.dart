@@ -5,6 +5,11 @@ class PostModal {
   PostModal(this.id, this.userId, this.title, this.body);
 
   factory PostModal.fromMap({required Map data}) {
-    return PostModal(data['id'], data['userId'], data['title'], data['body']);
+    return PostModal(
+      data['id'],
+      data['userId'],
+      data['title'],
+      data['body'],
+    );
   }
 }

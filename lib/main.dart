@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wallpaper_app/controllers/Wallpaper_controller.dart';
+import 'package:wallpaper_app/utils/routes_utils.dart';
+import 'package:wallpaper_app/views/screens/detail_page.dart';
 import 'package:wallpaper_app/views/screens/home_page.dart';
+import 'package:wallpaper_app/views/screens/search_page.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => WallpaperController(),
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -12,9 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      initialRoute: MyRoute.HomePage,
+      routes: {
+        MyRoute.HomePage: (context) => HomePage(),
+        MyRoute.DetailPage: (context) => const DetailPage(),
+        MyRoute.SearchPage: (context) => const SearchPage(),
+      },
     );
   }
 }

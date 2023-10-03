@@ -21,9 +21,11 @@ class ApiHelper {
       List allData = data["hits"];
 
       List<WallPaper> allWallpapersData = allData
-          .map((e) => WallPaper.fromMap(
-                json: e,
-              ))
+          .map(
+            (e) => WallPaper.fromMap(
+              json: e,
+            ),
+          )
           .toList();
 
       return allWallpapersData;
