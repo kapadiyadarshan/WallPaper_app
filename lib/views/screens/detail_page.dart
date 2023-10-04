@@ -1,3 +1,4 @@
+import 'package:async_wallpaper/async_wallpaper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper_app/controllers/Wallpaper_controller.dart';
@@ -74,11 +75,17 @@ class DetailPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.favorite_border,
+                    onPressed: () {
+                      (provider.likeWallpaper.contains(wallPaper))
+                          ? provider.removeLikeWallpaper(wallPaper: wallPaper)
+                          : provider.addLikeWallpaper(wallPaper: wallPaper);
+                    },
+                    icon: Icon(
+                      (provider.likeWallpaper.contains(wallPaper))
+                          ? Icons.favorite
+                          : Icons.favorite_border,
                     ),
                     color: Colors.white70,
                     iconSize: 28,
@@ -127,11 +134,15 @@ class DetailPage extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return Container(
-                            height: 300,
+                            height: 280,
                             width: double.infinity,
-                            padding: EdgeInsets.all(12),
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
                               color: MyColor.bgColor,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -144,100 +155,129 @@ class DetailPage extends StatelessWidget {
                                     color: MyColor.theme1,
                                   ),
                                 ),
-                                Container(
-                                  height: 50,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white24,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.home_filled,
-                                        size: 28,
-                                        color: MyColor.theme2,
-                                      ),
-                                      const SizedBox(
-                                        width: 6,
-                                      ),
-                                      const Text(
-                                        "Home Screen",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white70,
+                                //HomeScreen
+                                GestureDetector(
+                                  onTap: () {
+                                    provider.setWallpaper(
+                                        url: wallPaper.largeImageUrl,
+                                        location: AsyncWallpaper.HOME_SCREEN);
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.home_filled,
+                                          size: 24,
+                                          color: MyColor.theme2,
                                         ),
-                                      )
-                                    ],
+                                        const SizedBox(
+                                          width: 6,
+                                        ),
+                                        const Text(
+                                          "Home Screen",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white70,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                Container(
-                                  height: 50,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white24,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.lock,
-                                        size: 28,
-                                        color: MyColor.theme2,
-                                      ),
-                                      const SizedBox(
-                                        width: 6,
-                                      ),
-                                      const Text(
-                                        "Lock Screen",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white70,
+                                //LockScreen
+                                GestureDetector(
+                                  onTap: () {
+                                    provider.setWallpaper(
+                                      url: wallPaper.largeImageUrl,
+                                      location: AsyncWallpaper.LOCK_SCREEN,
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.lock,
+                                          size: 24,
+                                          color: MyColor.theme2,
                                         ),
-                                      )
-                                    ],
+                                        const SizedBox(
+                                          width: 6,
+                                        ),
+                                        const Text(
+                                          "Lock Screen",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white70,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                Container(
-                                  height: 50,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white24,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.phone_android_outlined,
-                                        size: 28,
-                                        color: MyColor.theme2,
-                                      ),
-                                      const SizedBox(
-                                        width: 6,
-                                      ),
-                                      const Text(
-                                        "Both Screen",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white70,
+                                //BothScreen
+                                GestureDetector(
+                                  onTap: () {
+                                    provider.setWallpaper(
+                                      url: wallPaper.largeImageUrl,
+                                      location: AsyncWallpaper.BOTH_SCREENS,
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.phone_android_outlined,
+                                          size: 24,
+                                          color: MyColor.theme2,
                                         ),
-                                      )
-                                    ],
+                                        const SizedBox(
+                                          width: 6,
+                                        ),
+                                        const Text(
+                                          "Both Screen",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white70,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],

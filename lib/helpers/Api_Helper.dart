@@ -12,9 +12,9 @@ class ApiHelper {
   String wallpaperAPI =
       "https://pixabay.com/api/?key=39791951-c36a6efe05b11256d1e376f13&orientation=vertical";
 
-  getWallpaperData({required String query}) async {
+  getWallpaperData({required String query, required String category}) async {
     http.Response response =
-        await http.get(Uri.parse("$wallpaperAPI&q=$query"));
+        await http.get(Uri.parse("$wallpaperAPI&q=$query&category=$category"));
 
     if (response.statusCode == 200) {
       Map data = jsonDecode(response.body);

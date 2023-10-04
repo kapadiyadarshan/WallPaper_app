@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                 text: "Wall",
                 style: TextStyle(
                   color: MyColor.theme2,
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                 text: "Papers",
                 style: TextStyle(
                   color: MyColor.theme1,
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
