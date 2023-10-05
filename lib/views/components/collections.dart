@@ -61,7 +61,7 @@ class Collections extends StatelessWidget {
                         image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            "https://pixabay.com/get/ge84e275aae6c8397b235da2b9ae5047cc17546d2512680e22a723ad3ad6f0dd378d9f6bdcc61f33a22dad3fa60f9c4c732aa694d7809635d165b40aed07095be_1280.jpg",
+                            "https://pixabay.com/get/geae94f4bfa9edffaab33e4e6b32859f7d6fe9d4df528fd20e7f75ba41ab0402b45e076d6f4b02cf5e6786ff0e2d407baad204b13e638b528cd1a1ea33e98cd3d_1280.jpg",
                           ),
                         ),
                       ),
@@ -109,7 +109,7 @@ class Collections extends StatelessWidget {
                         image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            "https://pixabay.com/get/gd026c8601ef725c016de3a24e00dbcdd2bb5067787ee2bcf6dc0abc087fe37faf18464fa7d4f8bf5cc1948320d0b9f0efdbcb2847189b3db4bfbb508309b3392_1280.jpg",
+                            "https://pixabay.com/get/g71a97a4b3bd4e39cc3a6106f4fa449ecb6a8a9e38220130f6f9ba5f8c9eebda24086cc41619218a8462539da0bf3c207ded48310d774a18c5631a980e796c1a0_1280.jpg",
                           ),
                         ),
                       ),
