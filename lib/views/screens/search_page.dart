@@ -134,9 +134,17 @@ class SearchPage extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.favorite_border,
+                                  onPressed: () {
+                                    (pro.likeWallpaper.contains(wallPaper))
+                                        ? pro.removeLikeWallpaper(
+                                            wallPaper: wallPaper)
+                                        : pro.addLikeWallpaper(
+                                            wallPaper: wallPaper);
+                                  },
+                                  icon: Icon(
+                                    (pro.likeWallpaper.contains(wallPaper))
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
                                   ),
                                   color: Colors.white70,
                                 ),
